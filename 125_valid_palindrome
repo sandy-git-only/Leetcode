@@ -1,0 +1,15 @@
+class Solution(object):
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        s_temp = ""
+        s = s.lower()
+        for chr in s:
+            if 'a' <= chr <='z' or '0' <= chr <= '9':
+                s_temp += chr
+        return s_temp == s_temp[::-1]
+
+solution = Solution()
+print(solution.isPalindrome("A man, a plan, a canal: Panama"))
