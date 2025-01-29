@@ -1,0 +1,33 @@
+# Definition for singly-linked list.
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+class Solution(object):
+    def middleNode(self, head):
+        """
+        :type head: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        length = 0
+        currentNode = head
+        while currentNode:
+            currentNode = currentNode.next
+            length += 1
+        
+        mid = length // 2
+        
+        midNode = head
+        for _ in range (mid):
+            midNode = midNode.next #找到mid之後會回傳後面所有的linked list
+        return midNode
+    
+    def middleNode_2(self,head):
+        slow_pointer = head
+        fast_pointer = head
+
+        while fast_pointer and fast_pointer.next:
+            slow_pointer = slow_pointer.next
+            fast_pointer = fast_pointer.next.next
+
+        return slow_pointer
