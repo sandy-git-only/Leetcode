@@ -11,19 +11,21 @@ class Solution(object):
         :rtype: int
         """
         self.maxDiameter = 0
-        def calDiameter(root):
-            if not root:
-                return 0
-            left_path = calDiameter(root.left)
-            right_path = calDiameter(root.right)
-            
-            currentDiameter = left_path + right_path
-            self.maxDiameter = max(self.maxDiameter, currentDiameter)
-
-            return max(left_path, right_path) + 1
-        
-        calDiameter(root)
+        self.calDiameter(root)
         return self.maxDiameter
+    
+    def calDiameter(self, root):
+        if not root:
+            return 0
+        left_path = self.calDiameter(root.left)
+        right_path = self.calDiameter(root.right)
+        
+        currentDiameter = left_path + right_path
+        self.maxDiameter = max(self.maxDiameter, currentDiameter)
+
+        return max(left_path, right_path) + 1
+        
+        
 
 root = TreeNode(1)
 root.left = TreeNode(2)
