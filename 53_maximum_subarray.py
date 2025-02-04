@@ -22,7 +22,7 @@ class Solution(object):
                 max_sum = current_sum
                 start = temp
                 end = i
-        return nums[start : end + 1]
+        return max_sum, nums[start : end + 1]
 
                 
                 
